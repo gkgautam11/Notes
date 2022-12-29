@@ -1,0 +1,13 @@
+servlet
+...................................
+goto google search tomcat downlod for windows
+2. open apachetomcat.org  >>>>>>>>>>>>>https://tomcat.apache.org/download-10.cgi
+3. download 64 bit windows zip
+ if we want any change in port no .... go to the confo folder then open server file and edit it.
+
+
+...........................................................................................................................
+if server option not comming in the eclipse then
+ goto help > goto eclipse market place > search Tomcat server> install> give perpission > and finish 
+.............................................................................................................................
+

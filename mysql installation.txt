@@ -1,0 +1,36 @@
+How to download mysql 
+
+1. dev.mysql.com › downloads › mysqlMySQL :: Download MySQL Community Server
+ 	or 
+	goto - https://dev.mysql.com/downloads/mysql/
+2 . goto download
+
+............................................
+mysql info
+............
+port no- 3306
+X protocal port- 33060
+root password - root
+current user- root@localhost
+............................................
+To get our full info at command line - \s
+to show all databases- show databases;
+..................................................................................................
+
+			How to download MySql Connecter
+		...........................................
+gto -http://www.java2s.com/Code/Jar/m/Downloadmysqlconnectorjar.htm
+
+...............................................................................
+
+			Steps to connect JDBC with java
+			...............................
+1. load the driver using- Class.forName("com.mysql.jdbc.Driver"
+2. create connection 
+		//create the connection
+			 String user="root";
+			 String password="root";
+			 String url="jdbc:mysql//localhost:3306/student_manage";
+			 
+			Connection con= DriverManager.getConnection(url,user,password);
+

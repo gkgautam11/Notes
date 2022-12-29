@@ -1,0 +1,20 @@
+#How to download java(JDK)
+Go to ->https://www.oracle.com/in/java/technologies/javase/javase8u211-later-archive-downloads.html
+
+## HOw to install Android Studio
+->> Download Andriod studio(developer.android.com) OR(https://developer.android.com/studio)  ->click download->check checkbox->downloaded file-> Next->next->
+		Next->Install->Next->Finish->open android studio->standard->choose theme->Next->Choose both licence->finish->Finish
+
+.........................................................
+
+###  How to download Appium Server-
+-->>Navigate to (Appium.io )->donload->download .exe file for windows->
+	# How to install Appium server->click on downloaded file->Chose(Anyone who use )->install->Finish
+
+#How to set environment variable for Anroid Studio--->
+	-->> go to Location(C:\Users\gkgau\AppData\Local\Android\Sdk) copy this link -->Open Advance system setting(goto the this pc show drives right click on blank 
+				->properties->Advance system property ->Environmet variables -> System variables ->new add 
+
+...........................................................
+## How to create virtual devices
+

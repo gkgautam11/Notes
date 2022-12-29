@@ -1,0 +1,227 @@
+package collectionConcept;
+import java.util.ArrayList;
+
+public class ArrayListExample 
+{
+
+	public static void main(String[] args) 
+	{
+	 ArrayList l=new ArrayList();   // Creating object for ArrayLIst Class
+	 ArrayList l2= new ArrayList();
+	 ArrayList l3= new ArrayList();
+	 
+	 l.add(10); // add Value/object(10,20) Not index
+	 l.add("hello");
+	 System.out.println(l);
+	 l.remove(0);// remove(index)
+	 System.out.println(l);
+	 l.size();
+	 boolean b=l.contains(20);//checks value is in list or not
+	 System.out.println(b);
+	 
+	 
+	 l2.add(30);
+	 l2.add(40);
+	 l2.add(50);
+	 l2.add(60);
+	 
+	 l3.add(7);
+	 l3.add(17);
+	 System.out.println(l3);
+	 
+	 System.out.println(l.containsAll(l2));//l2 all element in l1 or not
+	 
+	 l.addAll(l2);// add all elements of l2 in l1
+	 l.addAll(0, l2); // add all elements of l2 in l1 at specofied position
+	 
+	 System.out.println(l);
+	 System.out.println(l2);
+	 System.out.println(l.containsAll(l2));
+	 System.out.println(l2.retainAll(l3));//   l2 value will remove RetainAll Is used to remove 
+	 										//value if vale is removed then true 
+	 System.out.println(l3);
+	 System.out.println(l2);
+	 
+	 Object [] a= l.toArray();// toArray() will covert the list in Array OF Object Type 
+	 System.out.println(a);
+	 for(Object o:a)
+	 {
+		 System.out.print(o +" ");
+	 }
+
+	}
+
+}
+
+// Method of Collection interface can be used by any Interface or class
+.......................
+[10, hello]
+[hello]
+false
+[7, 17]
+false
+[30, 40, 50, 60, hello, 30, 40, 50, 60]
+[30, 40, 50, 60]
+true
+true
+[7, 17]
+[]
+[Ljava.lang.Object;@626b2d4a
+30 40 50 60 hello 30 40 50 60 
+.......................................
+ArrayList
+
+
+package collectionConcept;
+
+import java.util.ArrayList;
+
+public class ArrayListExapmle {
+
+	public static void main(String[] args)
+	{
+		ArrayList l= new ArrayList();
+		ArrayList l2= new ArrayList();
+		
+	
+		l.add(10);
+		l.add(20);
+		l.add(1,2);
+		
+		l2.add(40);
+		l2.add(43);
+		
+		l.addAll(l2);
+		l.add(0,l2);
+		
+		
+		
+		l.remove(3);// to remove value of Specified Position
+		System.out.println(l);//[[40, 43], 10, 2, 40, 43]
+		
+		
+		//2
+		System.out.println(l.get(2));// to Get value of Specified position
+		
+		System.out.println(l);//[[40, 43], 10, 2, 40, 43]
+		l.set(0,3089);// To set value at specified position as l.add(index,value)
+		System.out.println(l);//[3089, 10, 2, 40, 43]
+		
+		l.add(3);
+		l.add(0,3);
+		l.add(3);
+		l.add(3);
+		l.add(3);
+		
+		int index=l.indexOf(l2);
+		int lastIndex=l.lastIndexOf(3);
+		
+		System.out.println(l);//[3, 3089, 10, 2, 40, 43, 3, 3, 3, 3]
+		System.out.println(index+"  "+ lastIndex);//-1  9
+		
+		
+		
+		
+		
+		
+
+	}
+
+}
+
+
+[[40, 43], 10, 2, 40, 43]
+2
+[[40, 43], 10, 2, 40, 43]
+[3089, 10, 2, 40, 43]
+[3, 3089, 10, 2, 40, 43, 3, 3, 3, 3]
+-1  9
+
+ 
+..................................
+
+package conceptForCoading;
+import java.util.ArrayList;
+public class MathematicalOperationonAnyCollectionClass 
+{
+	public static void main(String args[])
+		{
+			ArrayList l= new ArrayList();
+			l.add(30);
+			l.add(30);
+			l.add(30);
+			l.add(30);
+			System.out.println(l);
+			
+			//To perfom mathematical operation
+			for(int i=0;i<l.size();i++)
+			{
+				Integer i1=(Integer)l.get(i); //	//To perfom mathematical operation
+				System.out.println(i1/2);
+				System.out.println((i1*230)/234);
+				
+				
+				
+		
+			}
+	}
+
+
+}
+.................................
+
+package collectionConcept;
+import java.util.Vector;
+
+public class VectorExample {
+
+	public static void main(String[] args) 
+	{
+		Vector<Integer> v= new Vector<>();
+		Vector<Integer> v2= new Vector<>();
+		Vector<Integer> v3= new Vector<>();
+		v.addElement(10);// 10 is value 
+		v.add(100);	//100 is value
+		//v.removeElement(10);//10 value
+		int capacoty=v.capacity();
+		int size=v.size();
+		//v.clear();
+		//v.removeAllElements();  // Works same as clear method
+		v.addElement(20);
+		
+/*BY This way any changes made in v2 or v will reflect in ech other;
+	 	
+	 	v2=v;
+	 	System.out.println(v);//[10, 100, 20]
+		
+		v.add(10000);
+		v.addElement(20864);
+		v2.add(109);
+		System.out.println(v);//[10, 100, 20, 10000, 20864, 109]
+		System.out.println(v2);//[10, 100, 20, 10000, 20864, 109]
+		
+		*/
+		
+	
+		//For not reflection of one changes into other then go with this way
+		for(Integer i:v)
+		{
+			v2.add(i);
+		}
+		
+		System.out.println(v+"    "+v2);//[10, 100, 20]    [10, 100, 20]
+		 v.add(8);
+		 v.add(89);
+		 v2.remove(0);
+		 System.out.println(v +"    "+v2);//[10, 100, 20, 8, 89]    [100, 20]
+		
+		}
+}
+	
+
+
+
+
+
+
+

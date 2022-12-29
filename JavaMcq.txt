@@ -1,0 +1,1113 @@
+C:\Users\gkgau\AppData\Local\Temp\Temp1_Web Tours 1.0 (2).zip\WebTours.zip
+
+
+3. Which component is used to compile, debug and execute the java programs?
+a) JRE
+b) JIT
+c) JDK
+d) JVM
+View Answer
+..........................
+Answer: c
+Explanation: JDK is a core
+
+8. Which environment variable is used to set the java path?
+a) MAVEN_Path
+b) JavaPATH
+c) JAVA
+d) JAVA_HOME
+View Answer
+
+Answer: d
+Explanation: JAVA_HOME is used to store a path to the java installation.
+
+..............................................
+class output {
+        public static void main(String args[]) 
+        {
+            double a, b,c;
+            a = 3.0/0;
+            b = 0/4.0;
+            c=0/0.0;
+ 
+	    System.out.println(a);
+            System.out.println(b);
+            System.out.println(c);
+        } 
+    }
+a) NaN
+b) Infinity
+c) 0.0
+d) all of the mentioned
+View Answer
+
+Answer: a
+Explanation: For floating point literals, we have constant value to represent (10/0.0) infinity either positive or negative and also have NaN (not a number for undefined like 0/
+0.0), but for the integral type, we don’t have any constant that’s why we get an arithmetic exception.
+
+...................................................................
+
+11. What is not the use of “this” keyword in Java?
+a) Referring to the instance variable when a local variable has the same name
+b) Passing itself to the method of the same class
+c) Passing itself to another method
+d) Calling another constructor in constructor chaining
+View Answer
+
+Answer: b
+Explanation: “this” is an important keyword in java. It helps to distinguish between local variable and variables passed in the method as parameters
+
+..................................
+
+  class variable_scope 
+    {
+        public static void main(String args[]) 
+        {
+            int x;
+            x = 5;
+            {
+	        int y = 6;
+	        System.out.print(x + " " + y);
+            }
+            System.out.println(x + " " + y);
+        } 
+    }
+a) Compilation error
+b) Runtime error
+c) 5 6 5 6
+d) 5 6 5
+View Answer
+
+Answer: a
+Explanation: Second print statement doesn’t have access to y , scope y was limited to the block defined after initialization of x.
+
+...................................................
+
+RIGHTSHIFT>>>>>>>
+
+16>2=     8/2=4/2=2
+< Cout == MultyplyBy Two
+
+
+
+// Java Program to Illustrate Signed Right Shift Operator
+ 
+// Main class
+class GFG {
+ 
+    // Main driver method
+    public static void main(String args[])
+    {
+ 
+        int x = -4;
+        System.out.println(x >> 1);
+ 
+        int y = 4;
+        System.out.println(y >> 1);
+    }
+}
+Output
+-2
+2
+
+........................
+
+15. What will be the output of the following Java program?
+
+    class leftshift_operator 
+    {
+        public static void main(String args[]) 
+        {        
+             byte x = 64;
+             int i;
+             byte y; 
+             i = x << 2;
+             y = (byte) (x << 2)
+             System.out.print(i + " " + y);
+        } 
+    }
+a) 0 256
+b) 0 64
+c) 256 0
+d) 64 0
+View Answer
+
+Answer: c
+
+...................................................
+
+17. What is Truncation in Java?
+a) Floating-point value assigned to a Floating type
+b) Floating-point value assigned to an integer type
+c) Integer value assigned to floating type
+d) Integer value assigned to floating type
+View Answer
+
+Answer: b
+.................................
+
+18. What will be the output of the following Java program?
+
+    class Output 
+    {
+        public static void main(String args[])
+        {
+            int arr[] = {1, 2, 3, 4, 5};
+            for ( int i = 0; i < arr.length - 2; ++i)
+                System.out.println(arr[i] + " ");
+        } 
+    }
+a) 1 2 3 4 5
+b) 1 2 3 4
+c) 1 2
+d) 1 2 3
+View Answer
+
+Answer: d
+Explanation: arr.length() is 5, so the loop is executed for three times.
+output:
+
+.......................................
+
+19. What will be the output of the following Java code snippet?
+
+class abc
+{
+    public static void main(String args[])
+    {
+        if(args.length>0)
+        System.out.println(args.length);
+    }
+}
+a) The snippet compiles and runs but does not print anything
+b) The snippet compiles, runs and prints 0
+c) The snippet compiles, runs and prints 1
+d) The snippet does not compile
+View Answer
+
+Answer: a
+Explanation: As no argument is passed to the code, the length of args is 0. So the code will not print
+
+...................................................................................................................
+
+21. Which exception is thrown when java is out of memory?
+a) MemoryError
+b) OutOfMemoryError
+c) MemoryOutOfBoundsException
+d) MemoryFullException
+View Answer
+
+Answer: b
+Explanation: The Xms flag has no default value, and Xmx typically has a default value of 256MB. A common use for these flags is when you encounter a java.lang.OutOfMemoryError.
+
+...............................................
+
+23. Which of these are selection statements in Java?
+a) break
+b) continue
+c) for()
+d) if()
+View Answer
+
+Answer: d
+Explanation: Continue and break are jump statements, and for is a looping statement
+......................................................
+
+Ceil>>> Gives the higher VAlue 
+
+    cout << " Ceil is : " << ceil(2.3) << endl;
+    cout << " Ceil is : " << ceil(-2.3) << endl;
+  
+    return 0;
+}
+Ceil is : 3
+Ceil is : -2
+
+................................................
+
+2. What will be the output of the following Java program?
+
+    import java.net.*;
+    class networking 
+    {
+        public static void main(String[] args) throws Exception 
+        {
+            URL obj = new URL("https://www.sanfoundry.com/javamcq");
+            URLConnection obj1 = obj.openConnection();
+            int len = obj1.getContentLength();
+            System.out.print(len);
+        }
+    }
+Note: Host URL is having length of content 127.
+a) 127
+b) 126
+c) Runtime Error
+d) Compilation Error
+View Answer
+
+Answer: a
+Explanation: None.
+Output:
+$ javac networking.java
+$ java networking 
+127
+
+...............................................
+
+33. Which of the below is not a Java Profiler?
+a) JProfiler
+b) Eclipse Profiler
+c) JVM
+d) JConsole
+View Answer
+
+Answer: c
+Explanation: Memory leak is like holding a strong reference to an object although it would never be needed anymore. Objects that are reachable but not live are considered memory leaks. Various tools help us to identify memory leaks.
+
+..............................................................
+
+34. What will be the output of the following Java program?
+
+    import java.net.*;
+    class networking
+    {
+        public static void main(String[] args) throws MalformedURLException
+        {
+            URL obj = new URL("https://www.sanfoundry.com/javamcq");
+            System.out.print(obj.toExternalForm());
+        }
+    }
+a) www.sanfoundry.com
+b) https://www.sanfoundry.com/javamcq
+c) sanfoundry
+d) sanfoundry.com
+View Answer
+
+Answer: b
+Explanation: toExternalForm() is used to know the full URL of an URL object.
+Output:
+
+................................
+
+38. Which of these statements is incorrect about Thread?
+a) start() method is used to begin execution of the thread
+b) run() method is used to begin execution of a thread before start() method in special cases
+c) A thread can be formed by implementing Runnable interface only
+d) A thread can be formed by a class that extends Thread class
+View Answer
+
+Answer: b
+Explanation: run() method is used to define the code that constitutes the new thread, it contains the code to be executed. start() method
+ is used to begin execution of the thread that is execution of run(). run() itself is never used for starting execution of the thread.
+
+.......................................................
+
+40. What will be the output of the following Java code?
+
+    class newthread extends Thread
+    {
+	Thread t;
+	newthread()
+        {
+	    t1 = new Thread(this,"Thread_1");
+	    t2 = new Thread(this,"Thread_2");
+	    t1.start();
+	    t2.start();
+	}
+	public void run()
+        {
+	    t2.setPriority(Thread.MAX_PRIORITY);	
+	    System.out.print(t1.equals(t2));
+        }    
+    }
+    class multithreaded_programing
+    {
+        public static void main(String args[])
+        {
+            new newthread();        
+        }
+    }
+a) truetrue
+b) falsefalse
+c) true
+d) false
+
+...................................
+
+6. Which data type value is returned by all transcendental math functions?
+a) int
+b) float
+c) double
+d) long
+View Answer
+
+Answer: c
+Explanation: None.
+7. What will be the out
+
+..........................
+
+4. Which of these occupy first 0 to 127 in Unicode character set used for characters in Java?
+a) ASCII
+b) ISO-LATIN-1
+c) None of the mentioned
+d) ASCII and ISO-LATIN1
+View Answer
+
+Answer: d
+Explanation: First 0 to 127 character set in Unicode are same as those of ISO-LATIN-1 and ASCI
+
+....................................................................................................
+
+
+    class booloperators {
+        public static void main(String args[]) 
+        {
+            boolean var1 = true;
+	    boolean var2 = false;
+	    System.out.println((var1 & var2));
+        } 
+    }
+a) 0
+b) 1
+c) true
+d) false
+View Answer
+
+Answer: d
+Explanation: boolean ‘&’ operator always returns true or false. var1 is defined true and var2 is defined false hence their ‘&’ operator result is false.
+output:
+
+..............................
+
+ class array_output 
+    {
+        public static void main(String args[]) 
+        {
+       	    int array_variable [] = new int[10];
+	    for (int i = 0; i < 10; ++i) {
+                array_variable[i] = i/2;
+                array_variable[i]++;
+                System.out.print(array_variable[i] + " ");
+                i++;
+            }
+ 
+        } 
+    }
+a) 0 2 4 6 8
+b) 1 2 3 4 5
+c) 0 1 2 3 4 5 6 7 8 9
+d) 1 2 3 4 5 6 7 8 9 10
+View Answer
+
+Answer: b
+Explanation: When an array is declared using new operator then all of its elements are initialized to 0 automatically. for loop body is executed 5 times as whenever controls comes in the loop i value is incremented twice, first by i++ in body of loop then by ++i in increment condition of for loop.
+output:
+$ javac array_output.java
+$ java array_output
+1 2 3 4 5
+
+...........................
+
+
+5. What is Truncation is Java?
+a) Floating-point value assigned to an integer type
+
+
+
+.................................
+
+
+ class char_increment 
+    {
+        public static void main(String args[]) 
+        {
+            char c1 = 'D';
+            char c2 = 84;
+            c2++;
+            c1++;
+            System.out.println(c1 + " "  + c2);
+        } 
+    }
+a) E U
+b) U E
+c) V E
+d) U F
+View Answer
+
+Answer: a
+Explanation: Operator ++ increments the value of character by 1. c1 and c2 are given values D and 84, when we use ++ operator their values increments by 1, c1 and c2 becomes E and U respectively
+
+...................................
+
+7. What will be the output of the following Java code?
+
+    class conversion 
+    {
+        public static void main(String args[]) 
+        {
+            double a = 295.04;
+            int  b = 300;
+            byte c = (byte) a;
+            byte d = (byte) b;
+            System.out.println(c + " "  + d);
+        } 
+    }
+a) 38 43
+b) 39 44
+c) 295 300
+d) 295.04 300
+View Answer
+
+Answer: b
+Explanation: Type casting a larger variable into a smaller variable results in modulo of larger variable by range of smaller variable. b contains 300 which is larger than byte’s range i:e -128 to 127 hence d contains 300 modulo 256 i:e 44.
+output:
+
+................................
+
+													 class main_arguments 
+    {
+        public static void main(String [] args) 
+        {
+            String [][] argument = new String[2][2];
+            int x;
+            argument[0] = args;
+            x = argument[0].length;
+            for (int y = 0; y < x; y++) 
+                System.out.print(" " + argument[0][y]);              
+        }
+    }
+									a) 1 1
+									b) 1 0
+									c) 1 0 3
+									d) 1 2 3
+							View Answer
+
+								Answer: d
+Explanation: In argument[0] = args;, the reference variable arg[0], which was referring to an array with two elements, is reassigned to an array (args) with three elements.
+
+...................................
+
+4. Which of these is an incorrect Statement?
+a) It is necessary to use new operator to initialize an array
+b) Array can be initialized using comma separated expressions surrounded by curly braces
+c) Array can be initialized when they are declared
+d) None of the mentioned
+View Answer
+
+Answer: a
+Explanation: Array can be initialized using both new and comma separated expressions surrounded by curly braces example : int arr[5] = new int[5]; and int arr[] = { 0, 1, 2, 3, 4};
+
+............................................................
+
+2. Which operator is used to invert all the digits in a binary representation of a number?
+a) ~
+b) <<<
+c) >>>
+d) ^
+View Answer
+
+Answer: a
+Explanation: Unary not operator, ~, inverts all of the bits of its operand in binary representation.
+
+......................................
+
+3. On applying Left shift operator, <<, on integer bits are lost one they are shifted past which position bit?
+a) 1
+b) 32
+c) 33
+d) 31
+View Answer
+
+Answer: d
+Explanation: The left shift operator shifts all of the bits in a value to the left specified number of times. For each shift left, the high order bit is shifted out and lost, zero is brought in from the right. When a left shift is applied to an integer operand, bits are lost once they are shifted past the bit position 31.
+
+
+.........................................
+
+5. Which of these statements are incorrect?
+a) The left shift operator, <<, shifts all of the bits in a value to the left specified number of times
+b) The right shift operator, >>, shifts all of the bits in a value to the right specified number of times
+c) The left shift operator can be used as an alternative to multiplying by 2
+d) The right shift operator automatically fills the higher order bits with 0
+View Answer
+
+Answer: d
+Explanation: The right shift operator automatically fills the higher order bit with its previous contents each time a shift occurs. This also preserves the sign of the value
+
+..............................
+>>>>>>>>>>>>>>>>>>>>>>>>>>
+...........................
+   class bitwise_operator 
+    {
+        public static void main(String args[])
+        {
+            int var1 = 42;
+            int var2 = ~var1;
+            System.out.print(var1 + " " + var2);     	
+        } 
+    }
+a) 42 42
+b) 43 43
+c) 42 -43
+d) 42 43
+View Answer
+
+Answer: c
+Explanation: Unary not operator, ~, inverts all of the bits of its operand. 42 in binary is 00101010 in us
+ing ~ operator on var1 and assigning it to var2 we get inverted value of 42 i:e 11010101 which is -43 in decima
+
+.................................
+
+5. Which of these statements is correct?
+a) true and false are numeric values 1 and 0
+b) true and false are numeric values 0 and 1
+c) true is any non zero value and false is 0
+d) true and false are non numeric values
+View Answer
+
+Answer: d
+Explanation: True and false are keywords, they are non numeric values which do not relate to zero or non zero numbers. true and false are boolean values.
+
+..................................................................
+
+
+3. What is the value stored in x in the following lines of Java code?
+
+Get Free Certificate of Merit in Java Programming Now!
+   int x, y, z;
+    x = 0;
+    y = 1;
+    x = y = z = 8;
+a) 0
+b) 1
+c) 9
+d) 8
+View Answer
+
+4. What is the order of precedence (highest to lowest) of following operators?
+
+    1. &    
+    2. ^
+    3. ?:
+a) 1 -> 2 -> 3
+b) 2 -> 1 -> 3
+c) 3 -> 2 -> 1
+d) 2 -> 3 -> 1
+View Answer
+
+Answer: a
+Explanation: None.
+
+..........................................................
+
+6. What will be the output of the following Java code?
+
+    class operators 
+    {
+        public static void main(String args[])
+        {
+            int var1 = 5; 
+            int var2 = 6;
+            int var3;
+            var3 = ++ var2 * var1 / var2 + var2;
+            System.out.print(var3);
+        } 
+    }
+a) 10
+b) 11
+c) 12
+d) 56
+View Answer
+
+Answer: c
+Explanation: Operator ++ has the highest precedence than / , * and +. var2 is incremented to 7 and then used in expression, var3 = 7 * 5 / 7 + 7, gives 12
+
+........................................................................................................................................................................
+
+4. When Overloading does not occur?
+a) More than one method with same name but different method signature and different number or type of parameters
+b) More than one method with same name, same signature but different number of signature
+c) More than one method with same name, same signature, same number of parameters but different type
+d) More than one method with same name, same number of parameters and type but different signature
+View Answer
+
+Answer: d
+Explanation: Overloading occurs when more than one method with same name but 
+different constructor and also when same signature but different number of parameters and/or parameter type
+
+...............................
+
+6. Which concept of Java is achieved by combining methods and attribute into a class?
+a) Encapsulation
+b) Inheritance
+c) Polymorphism
+d) Abstraction
+View Answer
+
+Answer: a
+Explanation: Encapsulation is implemented by combining methods and attribute into a class. The class acts like a container of encapsulating properties.
+
+..................................
+
+6. Which concept of Java is achieved by combining methods and attribute into a class?
+a) Encapsulation
+b) Inheritance
+c) Polymorphism
+d) Abstraction
+View Answer
+
+Answer: a
+Explanation: Encapsulation is implemented by combining methods and attribute into a class. The class acts like a container of encapsulating properties.
+...............................................
+
+7. What is it called if an object has its own lifecycle and there is no owner?
+a) Aggregation
+b) Composition
+c) Encapsulation
+d) Association
+View Answer
+
+Answer: d
+Explanation: It is a relationship where all objects have their own lifecycle and there is no owner. This occurs where many to many relationships are available, instead of one to one or one to many.
+8. What is it called where child object gets killed if parent object is killed?
+a) Aggregation
+b) Composition
+c) Encapsulation
+d) Association
+View Answer
+
+Answer: b
+Explanation: Composition occurs when child object gets killed if parent object gets killed. Aggregation is also known as strong Aggregation.
+
+............................
+9. What is it called where object has its own lifecycle and child object cannot belong to another parent object?
+a) Aggregation
+b) Composition
+c) Encapsulation
+d) Association
+View Answer
+
+Answer: a
+Explanation: Aggregation occurs when objects have their own life cycle and child object can associate with only one parent object.
+...........................................
+4. Which component is responsible to optimize bytecode to machine code?
+a) JVM
+b) JDK
+c) JIT
+d) JRE
+View Answer
+
+Answer: c
+Explanation: JIT optimizes bytecode to machine specific language code by compiling similar bytecodes at the same time. This reduces overall time taken for compilation of bytecode to machine specific language.
+.........................................
+
+9. How can we identify whether a compilation unit is class or interface from a .class file?
+a) Java source file header
+b) Extension of compilation unit
+c) We cannot differentiate between class and interface
+d) The class or interface name should be postfixed with unit type
+View Answer
+
+Answer: a
+Explanation: The Java source file contains a header that declares the type of class or interface, its visibility with respect to other classes, its name and any superclass it may extend, or interface it implements.
+
+............................
+
+    class main_class 
+    {
+        public static void main(String args[])
+        {
+            int x = 9;
+            if (x == 9) 
+            { 
+                int x = 8;
+                System.out.println(x);
+            }
+        } 
+    }
+a) 9
+b) 8
+c) Compilation error
+d) Runtime error
+View Answer
+
+Answer: c
+Explanation: Two variables with the same name can’t be created in a class.
+output:
+
+...................................................
+
+ java mainclass
+1
+10. What will be the output of the following Java program?
+
+   class box 
+   {
+        int width;
+        int height;
+        int length;
+   } 
+    class mainclass 
+    {
+        public static void main(String args[]) 
+        {        
+            box obj = new box();
+            System.out.println(obj);
+        } 
+    }
+a) 0
+b) 1
+c) Runtime error
+d) classname@hashcode in hexadecimal form
+View Answer
+...................................................................................................
+
+4. Which method can be defined only once in a program?
+a) main method
+b) finalize method
+c) static method
+d) private method
+View Answer
+
+Answer: a
+Explanation: main() method can be defined only once in a program. Program execution begins from the main() method by java runtime system
+.................................................................
+
+7. What will be the output of the following Java code?
+
+class San
+{
+     San()throws IOException
+     {
+ 
+     } 
+ 
+}
+class Foundry extends San
+{
+     Foundry()
+     {
+ 
+     }
+     public static void main(String[]args)
+     {
+ 
+     }
+}
+a) compile time error
+b) run time error
+c) compile and runs fine
+d) unreported exception java.io.IOException in default constructor
+View Answer
+
+Answer: a
+Explanation: If parent class constructor throws any checked exception, compulsory child
+ class constructor should throw the same checked exception as its parent, otherwise code won’t compile
+
+...........................................
+
+9. Which of the following statements are incorrect?
+a) default constructor is called at the time of object declaration
+b) constructor can be parameterized
+c) finalize() method is called when a object goes out of scope and is no longer needed
+d) finalize() method must be declared protected
+View Answer
+
+Answer: c
+Explanation: finalize() method is called just prior to garbage collection. it is not called when object goes out of scope
+
+............................................
+
+1. What is true about private constructor?
+a) Private constructor ensures only one instance of a class exist at any point of time
+b) Private constructor ensures multiple instances of a class exist at any point of time
+c) Private constructor eases the instantiation of a class
+d) Private constructor allows creating objects in other classes
+View Answer
+
+Answer: a
+Explanation: Object of private constructor can only be created within class. Private constructor is used in singleton pattern.
+
+............................................................
+
+2. What would be the behaviour if this() and super() used in a method?
+a) Runtime error
+b) Throws exception
+c) compile time error
+d) Runs successfully
+View Answer
+
+Answer: c
+Explanation: this() and super() cannot be used in a method. This throws compile time error.
+3. What is false about constructor?
+
+................................................
+
+ What is true about Class.getInstance()?
+a) Class.getInstance calls the constructor
+b) Class.getInstance is same as new operator
+c) Class.getInstance needs to have matching constructor
+d) Class.getInstance creates object if class does not have any constructor
+View Answer
+
+Answer: d
+Explanation: Class class provides list of methods for use like getInstance()
+
+.......................................................................................................
+
+8. What is not the use of “this” keyword in Java?
+a) Passing itself to another method
+b) Calling another constructor in constructor chaining
+c) Referring to the instance variable when local variable has the same name
+d) Passing itself to method of the same class
+View Answer
+
+Answer: d
+Explanation: “this” is an important keyword in java. It helps to distinguish between local variable and variables passed in the method as parameters.
+
+.....................................................
+
+10. What would be behaviour if the constructor has a return type?
+a) Compilation error
+b) Runtime error
+c) Compilation and runs successfully
+d) Only String return type is allowed
+View Answer
+
+Answer: a
+Explanation: The constructor cannot have a return type. It should create and return new object. Hence it would give compilation error
+
+......................................
+
+3. Which of these is correct about passing an argument by call-by-value process?
+a) Copy of argument is made into the formal parameter of the subroutine
+b) Reference to original argument is passed to formal parameter of the subroutine
+c) Copy of argument is made into the formal parameter of the subroutine and changes made on parameters of subroutine have effect on original argument
+d) Reference to original argument is passed to formal parameter of the subroutine and changes made on parameters of subroutine have effect on original argument
+
+..............................
+
+class San
+{
+ public void m1 (int i,float f)
+ {
+  System.out.println(" int float method");
+ }
+ 
+ public void m1(float f,int i);
+  {
+  System.out.println("float int method");
+  }
+ 
+  public static void main(String[]args)
+  {
+    San s=new San();
+        s.m1(20,20);
+  }
+}
+a) int float method
+b) float int method
+c) compile time error
+d) run time error
+View Answer
+
+Answer: c
+Explanation: While resolving overloaded method, compiler automatically promotes if exact match is not found. But in this case, which one to promote is an ambiguity
+
+...................
+
+ Which of these is used as a default for a member of a class if no access specifier is used for it?
+a) private
+b) public
+c) public, within its own package
+d) protected
+View Answer
+
+Answer: a
+
+.................
+
+6. What will be the output of the following Java code?
+
+    class access
+    {
+        public int x;
+ 	private int y;
+        void cal(int a, int b)
+        {
+            x =  a + 1;
+            y =  b;
+        }        
+    }    
+    public class access_specifier 
+    {
+        public static void main(String args[])
+        {
+            access obj = new access();   
+            obj.cal(2, 3);
+            System.out.println(obj.x + " " + obj.y);     
+        }
+   }
+a) 3 3
+b) 2 3
+c) Runtime Error
+d) Compilation Error
+View Answer
+
+Answer: c
+Explanation: None.
+output:
+$ javac access_specifier.java
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	The field access.y is not visible
+
+....................................................................................................................................................................
+
+4. How can a protected modifier be accessed?
+a) accessible only within the class
+b) accessible only within package
+c) accessible within package and outside the package but through inheritance only
+d) accessible by all
+View Answer
+
+Answer: c
+Explanation: The protected access modifier is accessible within package and outside the package but only through inheritance.
+ The protected access modifier can be used with data member, method and constructor. It cannot be applied in the class.
+
+...................................
+6. All the variables of interface should be?
+a) default and final
+b) default and static
+c) public, static and final
+d) protect, static and final
+View Answer
+
+Answer: c
+Explanation: Variables of an interface are public, static and final by default because the interfaces cannot be instantiated, final ensure
+s the value assigned cannot be changed with the implementing class and public for it to be accessible by all the implementing classes.
+
+.................................................
+9. Can a class be declared with a protected modifier.
+a) True
+b) False>>>>>>>>>>>>>correct
+
+..................................
+
+4. Which of these method of String class can be used to test to strings for equality?
+a) isequal()
+b) isequals()
+c) equal()
+d) equals()
+View Answer
+
+Answer: d
+Explanation: 
+
+....................................................
+
+1. Which of these is the method which is executed first before execution of any other thing takes place in a program?
+a) main method
+b) finalize method
+c) static method
+d) private method
+View Answer
+
+Answer: c
+Explanation: If a static method is present in the program then it will be executed first, then main will be executed.
+
+..............................................................
+
+5. Which of these statement is incorrect?
+a) Two or more methods with same name can be differentiated on the basis of their parameters data type
+b) Two or more method having same name can be differentiated on basis of number of parameters
+c) Any already defined method in java library can be defined again in the program with different data type of parameters
+d) If a method is returning a value the calling statement must have a variable to store that value
+View Answer
+
+Answer: d
+Explanation: Even if a method is returning a value, it is not necessary to store that value
+
+..................................................................................................
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<
+10. What will be the output of the following Java program?
+
+    class A 
+    {
+        int i;
+        public void display() 
+        {
+            System.out.println(i);
+        }    
+    }    
+    class B extends A 
+   {
+        int j;
+        public void display() 
+        {
+            System.out.println(j);
+        } 
+    }    
+    class Dynamic_dispatch 
+   {
+        public static void main(String args[])
+        {
+            B obj2 = new B();
+            obj2.i = 1;
+            obj2.j = 2;
+            A r;
+            r = obj2;
+            r.display();     
+        }
+   }
+a) 1
+b) 2
+c) 3
+d) 4
+View Answer
+
+Answer: b
+Explanation: r is reference of type A, the program assigns a reference of object obj2 to r and uses that reference to call function display() of class B.
+output:
+$ javac Dynamic_dispatch.java
+$ java Dynamic_dispatch 
+2<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>><<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><>>>>>
+
+.......................................................
+class A 
+    {
+        public int i;
+        private int j;
+    }    
+    class B extends A 
+    {
+        void display() 
+        {
+            super.j = super.i + 1;
+            System.out.println(super.i + " " + super.j);
+        }
+    }    
+    class inheritance 
+   {
+        public static void main(String args[])
+        {
+            B obj = new B();
+            obj.i=1;
+            obj.j=2;   
+            obj.display();     
+        }
+   }
+a) 2 2
+b) 3 3
+c) Runtime Error
+d) Compilation Error
+View Answer
+
+Answer: d
+Explanation: Class contains a private member variable j, this cannot be inherited by subclass B and does not have access to it.
+
+........................................................
+
+
+
+https://demo1234d.atlassian.net/jira/software/projects/AFLR/boards/1/backlog

@@ -1,0 +1,541 @@
+RestAssured:-
+1 . create maven project:
+file->new file->maven project->next->org.apache.maven.archetype(maven.archetyepe Quick start)-> next->Group id(com),arfitectID(RestAssured)->finish
+2. To get currect working directory- System.getProperty("user.dir")
+
+
+
+
+
+
+
+......................................................#####################################################............................................................
+						project Creation
+					...........................
+# Required Dependencies :- 
+1.Rest Assured 
+2. json schema validator 
+3.TestNg
+4.google gson
+5.extentreports(artifect,Antivent)
+6.Json->json+gson -for validating response
+
+.....................
+# How to format POM 
+Ctrl+A -> Ctrl+Shift+f
+
+......................
+
+############################################################## Framwork Decvelopment  ################################################################################
+1.create five package in src/main/java 
+	1.1) utils--->A). FileandEnv class for Accessing .properties file ,   B) ExtentReport class for Reporting purpose
+	1.2) pojo--->create a pojo class(it will contains private variables with getter,setter and constructer)
+	1.3)apiBuilders
+	1.4) apiConfigs------>A)APIPATH class it contains all endpoints , B) create HederConfigs class for headers value
+	1.5)apiVerificationa---->Create a class and methods for validating responses in generic way
+
+and two in src/test/java
+
+	1.1)baseTest->  Extend ExtentListener class and write @Beforecalss for setting BASEURI
+	1.2)studentApiTest->Heres extent BASETEST and create test for post,get.....Methods
+
+2. create an input folder->it will contain data for all env(two run in all env)
+	2.1  create files for different env , with .propertoes extension.eg(ServerUrl=https://www.test.com
+										portno=8587
+										username=SitUser
+										password=SitPassword
+									)
+3. How to use this data in our test
+  1.1) utils->create FileAndEnv class to accessing data from input files
+		>> Here create one map object and method add all env info into it and retrurn map obj through method eg(
+
+.........................															
+package utils;
+//here we will access data given in properties file design it after creating files inside inputs folder
+
+import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+public class FileandEnv {
+	//creating map object here will put all info abot environmets
+	public static Map<String,String> fileandenv=new HashMap<String,String>();
+	
+	//creating propertis object to load our environmets property file
+	public static Properties promain=new Properties();
+	public static Properties propPreSet=new Properties();
+	
+	
+	public static Map<String, String>envAndFile()
+	{
+		//Here will get which environmet we are selecting to test
+		String environment=System.getProperty("env");
+		try {
+			if(environment.equals("dev"))
+			{
+				//it will return working directory/File Location
+				String filelocation=System.getProperty("user.dir");
+				
+				//it will read the dev properties file
+				FileInputStream fisDev=new FileInputStream(filelocation+"/inputs/dev.properties");
+				
+				//Loading properties file 
+				promain.load(fisDev);
+				
+				fileandenv.put("serverUrl", promain.getProperty("ServerUrl"));
+				fileandenv.put("portno", promain.getProperty("portno"));
+				fileandenv.put("username", promain.getProperty("username"));
+				fileandenv.put("password", promain.getProperty("password"));	
+			}
+			
+			else if (environment.equals("sit"))
+			{
+				//it will return working directory/File Location
+				String filelocation=System.getProperty("user.dir");
+				
+				//it will read the Sit properties file
+				FileInputStream fisSit=new FileInputStream(filelocation+"/inputs/SIT.properties");
+				
+				//Loading properties file 
+				promain.load(fisSit);
+				
+				fileandenv.put("serverUrl", promain.getProperty("ServerUrl"));
+				fileandenv.put("portno", promain.getProperty("portno"));
+				fileandenv.put("username", promain.getProperty("username"));
+				fileandenv.put("password", promain.getProperty("password"));	
+			}
+			else if (environment.equals("uat"))
+			{
+				//it will return working directory/File Location
+				String filelocation=System.getProperty("user.dir");
+				
+				//it will read the Sit properties file
+				FileInputStream fisUat=new FileInputStream(filelocation+"/inputs/UAT.properties");
+				
+				//Loading properties file 
+				promain.load(fisUat);
+				
+				fileandenv.put("serverUrl", promain.getProperty("ServerUrl"));
+				fileandenv.put("portno", promain.getProperty("portno"));
+				fileandenv.put("username", promain.getProperty("username"));
+				fileandenv.put("password", promain.getProperty("password"));	
+			}
+			
+			
+		} catch (Exception e) {
+			
+		}
+		return fileandenv;
+		
+	}
+	
+	public Map<String, String> getConfigReader()
+	{
+		if(fileandenv==null)
+		{
+			fileandenv=envAndFile();
+		}
+		
+		return fileandenv;
+	}
+	
+	
+	
+
+}
+............
+
+
+1.2)Create ExtentReportListner inside Utils package
+
+.......................................
+package utils;
+import java.io.File;
+
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+//Creating this class for Report Generation
+
+public class ExtentReportListener implements ITestListener{
+	protected static ExtentReports reports;//From releventcode
+	protected static ExtentTest test;//From releventcode
+	private static String resultpath=getResultPath();
+	
+private static String getResultPath()
+{
+	resultpath="test";
+	if(!new File(resultpath).isDirectory()) {
+		new File(resultpath);
+	}
+	return resultpath;
+}
+
+String reportLocation="test-output/Report/"+resultpath+"/";
+
+public void onTestStart(ITestResult result)
+{
+	test=reports.startTest(result.getMethod().getMethodName());
+	test.log(LogStatus.INFO, result.getMethod().getMethodName());
+	System.err.println(result.getTestClass().getTestName());
+	System.err.println(result.getMethod().getMethodName());
+}
+ public void onTestSuccess(ITestResult result)
+ {
+	 test.log(LogStatus.PASS, "Test has been passed");
+	 
+ }
+ public void onTestFailure(ITestResult result)
+ {
+	 test.log(LogStatus.FAIL, "Test has been Failed");
+ }
+ public void onTestSkipped(ITestResult result)
+ {
+	 test.log(LogStatus.SKIP, "Test has been Skipped");
+ }
+ 
+ //It will create Report 
+ public void onStart(ITestContext context)
+ {
+	System.out.println("ReportLocation is :"+reportLocation);
+	reports=new ExtentReports(reportLocation+"ExtentReport.Html");
+	test=reports.startTest("");
+ }
+ 
+ public void onFinish(ITestContext context)
+ {
+	 reports.endTest(test);
+	 reports.flush();
+ }
+
+}
+......................
+##########################################################
+1.4) apiConfigs------>A)APIPATH class it contains all endpoints
+
+..........................
+package apiConfigs;
+
+public class ApiPath {
+	
+	public final static class apiPath
+	{
+		//Get URLs
+		public static final String GET_SINGLE_USER="users?page=2";
+		public static final String GET_MULTIPLE_USER="";
+		
+		
+		//POSt URLS
+		public static final String POST_SINGLE_USER="users";
+		
+		
+		//PUT URLS
+		public static final String PUT_SINGLE_USER="users/2";
+		
+		
+		//DELETE URLS
+		public static final String DELETE_SINGLE_USER="users/2";
+		
+		
+		
+	}
+	
+
+}
+.............................
+
+1.4)  B) create HederConfigs class for headers value
+
+..................
+public class HederConfigs {
+	//Creating method which will return map 
+	public Map<String, String> defaultHeader()
+	{
+		Map<String,String> defaultheaders=new HashMap<String, String>();
+		defaultheaders.put("content-type","application/json");
+		return defaultheaders;
+	}
+................
+###############################################################################  SRC/TEST###############################################################
+1.1)baseTest->Extend ExtentListener class and write @Beforecalss for setting BASEURI
+
+package baseTest;
+
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.LogStatus;
+
+import io.restassured.RestAssured;
+import utils.ExtentReportListener;
+import utils.FileandEnv;
+
+@Listeners(ExtentReportListener.class)
+public class BaseTest extends ExtentReportListener {
+	@BeforeTest
+	public void baseTest()
+	{
+		//it will return serverURl (http://localhost:3000/)
+		RestAssured.baseURI=FileandEnv.envAndFile().get("ServerUrl");//"http://localhost:3000/";
+		System.err.println(RestAssured.baseURI);
+	
+	}
+
+}
+
+1.2)studentApiTest--->Heres extent BASETEST and create test for post,get.....Methods
+eg():-package studentApiTest;
+
+import org.testng.annotations.Test;
+
+import apiConfigs.ApiPath;
+import baseTest.BaseTest;
+import io.restassured.RestAssured;
+
+public class GETApiTest extends BaseTest{
+	
+	@Test
+	public void getApiTest()
+	{
+		RestAssured.
+		given().
+		when().
+		get(ApiPath.apiPath.GET_MULTIPLE_USER).
+		then().
+		assertThat().
+		log().
+		all().statusCode(200);
+		
+	}
+	
+
+}
+									package studentApiTest;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.LogStatus;
+
+import apiConfigs.ApiPath;
+import baseTest.BaseTest;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+public class GETApiTest extends BaseTest{
+	
+	@Test
+	public void getApiTest()
+	{
+		//System.out.println(ApiPath.apiPath.GET_MULTIPLE_USER);
+	Response res =		RestAssured.
+						given().
+						when().
+						get(ApiPath.apiPath.GET_MULTIPLE_USER);
+	
+	test.log(LogStatus.INFO, "Test has been Started......:");
+	
+	//JSONArray from Json not from googleGson
+	JSONArray array= new JSONArray(res.getBody().asString());
+	test.log(LogStatus.INFO, "We have array object is:"+array);
+	for(int i=0;i<array.length();i++)
+	{
+		//System.out.println(array.get(i));//it will print each index object
+		
+		//To convert Json Array into JsonObject
+		JSONObject obj= array.getJSONObject(i);
+		System.out.println(obj.get("email"));
+		test.log(LogStatus.INFO, "Values of Email is :"+obj.get("email"));
+		
+	}
+	
+	
+	
+	
+	//JsonArray array= new JsonArray(res.getBody().asString());
+//	System.out.println(res.statusCode());
+//	System.err.println(res.getBody().asString());
+//		then().
+//		assertThat().
+//		log().
+//		all().statusCode(200);
+		//RestAssured.baseURI="http://localhost:3000/";
+//		RestAssured.
+//		given().
+//		when().
+//		get("Students/9").
+//		then().
+//		assertThat().
+//		log().
+//		all();
+		
+	}
+	
+
+}
+.........................................
+
+1.5)ApiVerifications-Create a class where will validate our response 
+.............................
+
+
+package apiVerifications;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.testng.Assert;
+
+import com.relevantcodes.extentreports.LogStatus;
+
+import io.restassured.response.Response;
+import utils.ExtentReportListener;
+
+public class APIVErification extends ExtentReportListener{
+	//Validating StatusCode
+	public static void responseCodeValidation(Response res,int statuscode)
+	{
+		try {
+			Assert.assertEquals(statuscode, res.getStatusCode());
+			test.log(LogStatus.INFO, "Successfully validated statuscode, Actual status code is :["+res.getStatusCode()+"]"+
+										"Expected Status code is["+statuscode+"]");
+			System.out.println("Status code is :"+res.getStatusCode());
+			
+		}catch (AssertionError e) {
+			test.log(LogStatus.FAIL, e.fillInStackTrace());
+			test.log(LogStatus.FAIL, "Expected status code is ["+statuscode+"]","but we got["+res.getStatusCode()+"]");
+		} 
+		catch (Exception e) {
+			test.log(LogStatus.FAIL, e.fillInStackTrace());
+		}
+		
+	}
+	//Validating ResponseKey for Get for Multiple users <REsponsce whcih will give as JsonArray)
+	public static void responseKeyValidationForJsonArrayResponce(Response res,String key)
+	{
+		try {
+			JSONArray array= new JSONArray(res.getBody().asString());
+			for(int i=0;i<array.length();i++)
+			{
+				JSONObject obj= array.getJSONObject(i);
+				test.log(LogStatus.PASS, "Validated response key is :["+obj.get(key)+"]");
+				System.err.println("Value for key["+key+"] is::["+obj.get(key)+"]");
+			}
+			
+		} catch (Exception e) {
+			test.log(LogStatus.FAIL, e.fillInStackTrace());
+		}
+	}
+	
+	//Validating Response Time
+	public static void responseTimeValidation(Response res)
+	{
+		
+		try {
+			long responseTime=res.time();
+			test.log(LogStatus.PASS,"Getting Response time is :["+responseTime+"]");
+			System.err.println("Getting Response time is :["+responseTime+"]");
+		} catch (Exception e) {
+			test.log(LogStatus.FAIL, e.fillInStackTrace());
+		}
+	}
+	//Validating ResponseKey for Post/for Single user<REsponsce whcih will give as JsonObject)
+	public static void responceKeyValidationforSingleORPostRequest(Response res,String key)
+	{
+		try {
+			 
+			JSONObject obj=new JSONObject(res.getBody().asString());
+			if(obj.has(key) && obj.get(key) !=null)
+			{
+				test.log(LogStatus.PASS, "Successsfully Validate Key and value for res and Key is ["+key+"] and value is ["+obj.get(key));
+			
+			System.out.println("Key is ["+key+"] and value is ["+obj.get(key));
+			}
+			else {
+				test.log(LogStatus.FAIL, "Key is ["+key+"] and value is :["+obj.get(key));
+			}
+		} catch (Exception e) {
+			test.log(LogStatus.FAIL, e.fillInStackTrace());
+		}
+		
+	}
+}
+
+
+BASE64 Convirsion
+..............................................................
+
+public static Credentials base64Encoder(final String username,final String password)
+	{
+		String cred=username+":"+password;
+		try {
+			cred=Base64.getEncoder().encodeToString(cred.getBytes());
+			System.err.println(cred);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		Credentials logincred=new Credentials();
+		logincred.setCredentials(cred);
+		
+		return logincred;
+
+	}
+	
+.........................
+
+1.2)Pojo :- create a pojo class(it will contains private variables with getter,setter and constructer)
+
+package pojo;
+
+public class PostApiPojo {
+
+	
+	/*Also known as
+	 * serialization
+	 * 
+	 * */
+	
+//Constructer for both id and name 	
+	private int id;
+	public PostApiPojo(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	private String name;
+//etter setter for id and name 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+//To String for name and id
+	@Override
+	public String toString() {
+		return "PostApiPojo [id=" + id + ", name=" + name + ", getId()=" + getId() + ", getName()=" + getName()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
+
+}
+
+
+............................................................................................................................................................
+1.create input folder to read all property(for staging ,inte,prod.....)
+2.create envandFile class under test ->create one map object and one properties object for reading and writing into Map object.
+3.

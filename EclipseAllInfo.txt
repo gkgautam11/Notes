@@ -1,0 +1,34 @@
+1.# How to change Theme is eclipse->window ->preferences->preferences->expand general->click on Apperence->choose theme mode ->Apply and close
+2)# How to generate getter setter ->create any variable ->right click ->Source->Generate getter setter
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Shortcuts  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+1) to create main method -> write main - CTRL+space  then enter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

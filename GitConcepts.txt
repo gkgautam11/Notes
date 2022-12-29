@@ -1,0 +1,21 @@
+						(gkgautam1128@gmail.com,gkgautam11,@Gk) https://github.com/gkgautam11/TestRepo
+Personal access Tocken(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)
+
+# How to create git account
+ signup ->enter emailid ->password->username->continue->Create account->Skip->login->goto profile
+
+# How to create repository
+ click on plus sign->create new repository->enter reponame->enter description->create repo
+
+# How to create two factor Authentication account on git
+ goto setting ->password and authentication->enable two factor account ->setup by sms->enter county code and mobile no ->veryfy 
+
+# How to generate personal access tocken
+goto Setting ->developer setting->personal access tocken->tocken(classic)->genrate new tocken->Note(Tocken)->Generate tocken
+
+#How to download and install git:
+1. gitdownload->(scm.com)->download for windows 64 bit->click on downloaded file ->next .... next til install->install->Uncheck view release notes->Finish
+
+# NOTE:: if u have used previously git on pc with other account and now trying to push or any operation with other credentials then it will give error the Solutionis :--
+	control pannel->short by(large icon)->credential manager ->windows credentials->if u find git account->Remove it 
+

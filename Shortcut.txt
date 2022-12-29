@@ -1,0 +1,7 @@
+To take screen short........>	1.window key+shift+s
+				2.window key+prtscreen 
+				3.Using snapping tools
+
+###########How To add any icon on Desktop...................
+right click on taskbar->Taskbar setting ->Theme->Desktop icon setting->Chosse which u want ->ok
+ 
